@@ -12,6 +12,7 @@ namespace Player
     public class PlayerController : MonoBehaviour
     {
         public Camera playerCamera;
+        public PlayerState currentState;
         [Header("Player controls")]
         [Header("Movement")]
         public bool canMove = true;
@@ -23,7 +24,7 @@ namespace Player
         [SerializeField]private float gravity = 10f;
 
         private Vector2 lookPos;
-        [SerializeField]private float lookSpeed = 2f;
+        [SerializeField]public float lookSpeed = 2f;
         [SerializeField]private float lookXLimit = 45f;
 
         [HideInInspector]public Vector3 moveDirection = Vector3.zero;
@@ -40,7 +41,7 @@ namespace Player
         private Vector3 mouseWorldPosition;
         private Vector2 mousePosition;
         
-        private CharacterController characterController;
+        internal  CharacterController characterController;
         public static PlayerController Instance;
 
         private void Awake()
@@ -87,6 +88,11 @@ namespace Player
             lookPos = ctx.ReadValue<Vector2>();
         }
         
+        public void ChangeState(PlayerState state)
+        {
+            this.currentState = state;
+        }
+        
         #region Movement 
 
         private void Movement()
@@ -97,7 +103,7 @@ namespace Player
             float curSpeedX = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Vertical") : 0;
             float curSpeedY = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Horizontal") : 0;
             float movementDirectionY = moveDirection.y;
-            moveDirection = (forward.normalized * curSpeedX) + (right.normalized * curSpeedY);
+            moveDirection = ((forward.normalized * curSpeedX) + (right.normalized * curSpeedY));
             
             isWalking = moveDirection != Vector3.zero; // check if walking
 
@@ -164,5 +170,14 @@ namespace Player
         
 
     }
+}
+
+public enum PlayerState
+{
+    Idle,
+    Walking,
+    Running,
+    Crouch,
+    Jumping
 }
 

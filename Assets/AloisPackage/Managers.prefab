@@ -48,7 +48,7 @@ MonoBehaviour:
   currentState: 0
   timertoCrouch: 0.35
   crouchCameraPos: {fileID: 0}
-  timeToReachMaxValue: 4
+  timeToReachMaxValue: 2
   durationWalking: 0.5
   maxHeightXWalking: 0
   maxHeightYWalking: 0.1
@@ -91,9 +91,9 @@ MonoBehaviour:
   durationRunning: 0.35
   maxHeightXRunning: 0.2
   maxHeightYRunning: 0.1
-  maxHeightZRunning: 0.5
-  maxRotationXRunning: 7
-  maxRotationZRunning: 7
+  maxHeightZRunning: 0.25
+  maxRotationXRunning: 3.5
+  maxRotationZRunning: 3.5
   BobbingCameraIdleCurve:
     serializedVersion: 2
     m_Curve:

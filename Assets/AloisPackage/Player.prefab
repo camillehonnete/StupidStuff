@@ -320,7 +320,7 @@ MonoBehaviour:
   canMove: 1
   isWalking: 0
   isRunning: 0
-  walkSpeed: 6
+  walkSpeed: 3.5
   runSpeed: 12
   jumpPower: 4
   gravity: 15
