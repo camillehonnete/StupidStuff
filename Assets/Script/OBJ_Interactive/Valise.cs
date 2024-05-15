@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Player;
 using UnityEngine;
 
 public class Valise : MyObject
@@ -18,8 +19,8 @@ public class Valise : MyObject
     {
         if (isOwned)
         {
-            transform.position = Vector3.Lerp(transform.position, CameraManager.Instance.holdingPoint.position, Time.deltaTime * transitionTime);
-            transform.forward = Vector3.Lerp(transform.forward, CameraManager.Instance.holdingPoint.forward, Time.deltaTime * transitionTime);
+            transform.position = Vector3.Lerp(transform.position, PlayerController.Instance.holdingPoint.position, Time.deltaTime * transitionTime);
+            transform.forward = Vector3.Lerp(transform.forward, PlayerController.Instance.holdingPoint.forward, Time.deltaTime * transitionTime);
         }
     }
 

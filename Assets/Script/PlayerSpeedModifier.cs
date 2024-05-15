@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Player;
 using StarterAssets;
 using UnityEditor;
 using UnityEngine;
@@ -15,15 +16,15 @@ public class PlayerSpeedModifier : IsInsideTrigger
     {
         if (other.CompareTag("Player"))
         {
-            baseWalkSpeed = FirstPersonController.Instance.MoveSpeed;
-            FirstPersonController.Instance.MoveSpeed = newWalkSpeed;
+            baseWalkSpeed = PlayerController.Instance.walkSpeed;
+            PlayerController.Instance.walkSpeed = newWalkSpeed;
         }
     }
     protected override void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            FirstPersonController.Instance.MoveSpeed = baseWalkSpeed;
+            PlayerController.Instance.walkSpeed = baseWalkSpeed;
         }
     }
 }

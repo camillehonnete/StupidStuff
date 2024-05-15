@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraManager : MonoBehaviour
+public class CameraManager2 : MonoBehaviour
 {
 
-    public static CameraManager Instance;
+    public static CameraManager2 Instance;
     public Transform holdingPoint;
 
     private void Awake()
