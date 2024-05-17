@@ -45,7 +45,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 30
+  m_Intensity: 0
   m_Range: 10
   m_SpotAngle: 93.03952
   m_InnerSpotAngle: 31.26641
@@ -317,12 +317,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 0}
+  currentState: 0
   canMove: 1
   isWalking: 0
   isRunning: 0
   walkSpeed: 3.5
-  runSpeed: 12
-  jumpPower: 4
+  runSpeed: 8
+  jumpPower: 5
   gravity: 15
   lookSpeed: 0.05
   lookXLimit: 90
