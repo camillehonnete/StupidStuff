@@ -16,6 +16,10 @@ public class LightEnabler : IsInsideTrigger
     private void Start()
     {
         _lights = transform.GetComponentsInChildren<Light>();
+        foreach (var light in _lights)
+        {
+            light.intensity = 0;
+        }
     }
 
     protected override void Inside()
