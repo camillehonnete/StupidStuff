@@ -19,7 +19,7 @@ namespace Player
         [SerializeField]internal  bool isWalking;
         [SerializeField]internal  bool isRunning;
         [SerializeField]internal float walkSpeed = 6f;
-        [SerializeField]private float runSpeed = 12f;
+        [SerializeField]internal float runSpeed = 12f;
         [SerializeField]private float jumpPower = 7f;
         [SerializeField]private float gravity = 10f;
 

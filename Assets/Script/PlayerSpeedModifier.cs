@@ -10,6 +10,10 @@ public class PlayerSpeedModifier : IsInsideTrigger
     [Space] 
     [SerializeField] private float newWalkSpeed;
     private float baseWalkSpeed;
+
+    [Space] 
+    [SerializeField] private float newSprintSpeed;
+    private float baseSprintSpeed;
     
     
     protected override void OnTriggerEnter(Collider other)
@@ -17,6 +21,10 @@ public class PlayerSpeedModifier : IsInsideTrigger
         if (other.CompareTag("Player"))
         {
             baseWalkSpeed = PlayerController.Instance.walkSpeed;
+
+            baseSprintSpeed = PlayerController.Instance.runSpeed;
+
+            PlayerController.Instance.runSpeed = newSprintSpeed;
             PlayerController.Instance.walkSpeed = newWalkSpeed;
         }
     }
@@ -25,6 +33,7 @@ public class PlayerSpeedModifier : IsInsideTrigger
         if (other.CompareTag("Player"))
         {
             PlayerController.Instance.walkSpeed = baseWalkSpeed;
+            PlayerController.Instance.runSpeed = baseSprintSpeed;
         }
     }
 }

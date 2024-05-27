@@ -103,7 +103,8 @@ MonoBehaviour:
   cubeLineColor:
     serializedVersion: 2
     rgba: 4278255438
-  newWalkSpeed: 25
+  newWalkSpeed: 10
+  newSprintSpeed: 15
 --- !u!65 &4965332483947007631
 BoxCollider:
   m_ObjectHideFlags: 0
