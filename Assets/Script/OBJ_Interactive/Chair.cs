@@ -17,6 +17,8 @@ public class Chair : MyObject
     [SerializeField] private Transform outsideChairPos;
     [SerializeField]private float lookSpeed = 2f;
     
+    private AudioSource audioSource;
+    
     private float baseLookSpeed;
     private BoxCollider _boxCollider;
     [SerializeField]private List<BoxCollider> _listBoxCollider;
@@ -30,6 +32,8 @@ public class Chair : MyObject
         {
             coll.enabled = false;
         }
+        
+        audioSource = GetComponent<AudioSource>();
     }
 
 
@@ -50,6 +54,7 @@ public class Chair : MyObject
 
     private void InteractChair()
     {
+        //audioSource.Play();
         
         baseLookSpeed = PlayerController.Instance.lookSpeed;
         PlayerController.Instance.lookSpeed = lookSpeed;
