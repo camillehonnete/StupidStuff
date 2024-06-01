@@ -29,6 +29,7 @@ public class DialogueSystem : MonoBehaviour
             diaglogueText.text = dialogue.text;
             yield return new WaitForSeconds(dialogue.timeDisplayed);
         }
+        diaglogueText.text = String.Empty;
     }
 }
 
