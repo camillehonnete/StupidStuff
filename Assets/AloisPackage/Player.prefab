@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5045198730372743849
 Transform:
   m_ObjectHideFlags: 0
@@ -152,6 +152,7 @@ Transform:
   m_Children:
   - {fileID: 5063516180767240594}
   - {fileID: 7879827001265150354}
+  - {fileID: 3040987353340546546}
   m_Father: {fileID: 402419140435183144}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &4022206736838912072
@@ -328,7 +329,9 @@ MonoBehaviour:
   lookSpeed: 0.05
   lookXLimit: 90
   moveDirection: {x: 0, y: 0, z: 0}
-  holdingPoint: {fileID: 7879827001265150354}
+  holdingPoints:
+  - {fileID: 7879827001265150354}
+  - {fileID: 3040987353340546546}
   isCrouching: 0
   crouchWalkSpeed: 3
 --- !u!114 &3433552164071686546
@@ -345,7 +348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInteracting: 0
   hand: {fileID: 5063516180767240594}
-  light: {fileID: 0}
+  light: {fileID: 1687794653469912405}
   raycastLenght: 10
   numberOfBatterie: 0
 --- !u!143 &7621910829084534988
@@ -609,6 +612,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smooth: 10
   multiplier: -50
+--- !u!1 &7463523201420757331
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3040987353340546546}
+  m_Layer: 0
+  m_Name: HoldingPos (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3040987353340546546
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7463523201420757331}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.275, y: -0.343, z: 1.026}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4773449214904202885}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9045029119232729867
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class Valise : MyObject
 {
-    public float transitionTime;
+    [SerializeField] private float transitionTime;
+    [SerializeField] private int holdingPointIndex;
     
     private bool isOwned;
     private Collider _collider;
@@ -19,8 +20,8 @@ public class Valise : MyObject
     {
         if (isOwned)
         {
-            transform.position = Vector3.Lerp(transform.position, PlayerController.Instance.holdingPoint.position, Time.deltaTime * transitionTime);
-            transform.forward = Vector3.Lerp(transform.forward, PlayerController.Instance.holdingPoint.forward, Time.deltaTime * transitionTime);
+            transform.position = Vector3.Lerp(transform.position, PlayerController.Instance.holdingPoints[holdingPointIndex].position, Time.deltaTime * transitionTime);
+            transform.forward = Vector3.Lerp(transform.forward, PlayerController.Instance.holdingPoints[holdingPointIndex].forward, Time.deltaTime * transitionTime);
         }
     }
 

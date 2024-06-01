@@ -31,7 +31,7 @@ namespace Player
         internal float rotationX = 0;
 
         [Header("Interaction")] 
-        public Transform holdingPoint;
+        public List<Transform> holdingPoints;
 
         [Header("Crouch")]
         public bool isCrouching;
