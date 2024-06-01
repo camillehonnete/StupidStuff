@@ -54,7 +54,7 @@ public class Chair : MyObject
 
     private void InteractChair()
     {
-        //audioSource.Play();
+        audioSource.Play();
         
         baseLookSpeed = PlayerController.Instance.lookSpeed;
         PlayerController.Instance.lookSpeed = lookSpeed;

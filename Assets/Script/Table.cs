@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using DG.Tweening;
 using Player;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Table : MyObject
 {
     [SerializeField] private List<Transform> valisePos;
+    
+    
     protected override void  Start()
     {
         base.Start();
