@@ -32,6 +32,7 @@ namespace Player
 
         [Header("Interaction")] 
         public List<Transform> holdingPoints;
+        public List<Valise> valiseOwning;
 
         [Header("Crouch")]
         public bool isCrouching;

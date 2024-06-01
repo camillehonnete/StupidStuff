@@ -8,8 +8,8 @@ public class Valise : MyObject
     [SerializeField] private float transitionTime;
     [SerializeField] private int holdingPointIndex;
     
-    private bool isOwned;
-    private Collider _collider;
+    public bool isOwned;
+    [HideInInspector] public Collider _collider;
     void Start()
     {
         _collider = GetComponent<Collider>();
@@ -30,6 +30,7 @@ public class Valise : MyObject
         base.Interact();
         isOwned = true;
         _collider.enabled = false;
+        PlayerController.Instance.valiseOwning.Add(this);
         Debug.Log("Avec la valise");
     }
 }
