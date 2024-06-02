@@ -2,9 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using NaughtyAttributes;
 using Player;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class Chair : MyObject
 {
@@ -12,7 +14,10 @@ public class Chair : MyObject
     [SerializeField] private UnityEvent OnInteract;
     [SerializeField] private UnityEvent OnStopInteract;
     
-    [Header("Parameters")]
+    
+    [Header("Parameters")] 
+    [SerializeField] private bool doPutValiseDown = false;
+    [ShowIf("doPutValiseDown")][SerializeField] private List<Transform> valisePos;
     [SerializeField] private Transform camPos;
     [SerializeField] private Transform outsideChairPos;
     [SerializeField]private float lookSpeed = 2f;
@@ -45,6 +50,7 @@ public class Chair : MyObject
         if (hasInteracted)
         {
             InteractChair();
+            LetGoOfValise();
         }
         else
         {
@@ -54,7 +60,7 @@ public class Chair : MyObject
 
     private void InteractChair()
     {
-        audioSource.Play();
+        if(audioSource != null) audioSource.Play();
         
         baseLookSpeed = PlayerController.Instance.lookSpeed;
         PlayerController.Instance.lookSpeed = lookSpeed;
@@ -92,6 +98,21 @@ public class Chair : MyObject
         _boxCollider.center = Vector3.zero;
         
         OnStopInteract?.Invoke();
+    }
+
+    private void LetGoOfValise()
+    {
+        if(!doPutValiseDown) return;
+        if(PlayerController.Instance.valiseOwning.Count == 0) return;
+        int index = 0;
+        foreach (var valise in PlayerController.Instance.valiseOwning)
+        {
+            valise.isOwned = false;
+            valise._collider.enabled = true;
+            valise.transform.DOMove(valisePos[index].position, .2f);
+            valise.transform.DORotate(new Vector3(0, 0, 0), .2f);
+            index++;
+        }
     }
     
     
