@@ -54,6 +54,7 @@ public class Chair : MyObject
         }
         else
         {
+            if(doPutValiseDown) return;
             DeInteractChair();
         }
     }
@@ -61,6 +62,8 @@ public class Chair : MyObject
     private void InteractChair()
     {
         if(audioSource != null) audioSource.Play();
+
+        PlayerController.Instance.canMove = false;
         
         baseLookSpeed = PlayerController.Instance.lookSpeed;
         PlayerController.Instance.lookSpeed = lookSpeed;
@@ -90,6 +93,7 @@ public class Chair : MyObject
         }
             
         //TODO Logic to exit the Locker
+        PlayerController.Instance.canMove = false;
         PlayerController.Instance.lookSpeed = baseLookSpeed;
         
         PlayerController.Instance.transform.DOMove(outsideChairPos.position, 1).OnComplete((() => 

@@ -30,6 +30,7 @@ public class DialogueSystem : MonoBehaviour
             yield return new WaitForSeconds(dialogue.timeDisplayed);
         }
         diaglogueText.text = String.Empty;
+        UI.Instance.EnableEndingUI();
     }
 }
 
