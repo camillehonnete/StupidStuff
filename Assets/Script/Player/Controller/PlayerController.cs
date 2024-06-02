@@ -65,6 +65,7 @@ namespace Player
         {
             mousePosition = Input.mousePosition;
             Movement();
+            HandlesRotation();
             mouseWorldPosition = Vector3.zero;
         }
         public void OnCrouch(InputAction.CallbackContext ctx)
@@ -98,6 +99,7 @@ namespace Player
 
         private void Movement()
         {
+            if (!canMove) return;
             Vector3 forward = transform.TransformDirection(Vector3.forward);
             Vector3 right = transform.TransformDirection(Vector3.right);
             
@@ -133,7 +135,7 @@ namespace Player
             }
 
             HandlesJumping(movementDirectionY);
-            HandlesRotation();
+            
         }
 
         private void HandlesJumping(float movementDirectionY)
@@ -159,7 +161,7 @@ namespace Player
         {
             characterController.Move(moveDirection * Time.deltaTime);
 
-            if (!canMove) return;
+            
             rotationX += -lookPos.y * lookSpeed;
             rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
             playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
