@@ -98,6 +98,7 @@ namespace CameraBehavior
         
         void LateUpdate()
         {
+            if(!PlayerController.Instance.canMove) return;
             UpdateValueWhenWalking();
             UpdateValueWhenSprinting();
             UpdateValueWhenIdle();
