@@ -2372,7 +2372,7 @@ PrefabInstance:
     - target: {fileID: 3624555224716067786, guid: 217606b0a3241e04f85db1e659644fc6,
         type: 3}
       propertyPath: doPutValiseDown
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3624555224716067786, guid: 217606b0a3241e04f85db1e659644fc6,
         type: 3}
